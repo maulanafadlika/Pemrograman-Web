@@ -1,0 +1,33 @@
+@startuml
+!define RECTANGLE class
+RECTANGLE "Sistem Perbankan" as Bank {
+  :Pembukaan Rekening;
+  :Penyimpanan Uang;
+  :Pengambilan Uang;
+  :Perhitungan Uang (Informasi Saldo);
+  :Pencetakan Rekening Tabungan;
+  :Pembuatan Laporan;
+}
+
+actor "Mahasiswa" as Mhs
+actor "Petugas Bank" as Petugas
+
+Mhs --> Bank : Mengisi Formulir Pembukaan Rekening
+Bank --> Mhs : Data Rekening Disimpan
+
+Mhs --> Bank : Menyetor Uang
+Bank --> Mhs : Rekening Diperbarui
+
+Mhs --> Bank : Mengambil Uang
+Bank --> Mhs : Uang Diberikan
+
+Mhs --> Bank : Mengecek Saldo
+Bank --> Mhs : Informasi Saldo
+
+Mhs --> Petugas : Mencetak Rekening Tabungan
+Petugas --> Mhs : Rekening Tabungan Dicetak
+
+Mhs --> Bank : Membuat Laporan
+Bank --> Mhs : Laporan Transaksi Disediakan
+
+@enduml
